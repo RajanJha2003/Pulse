@@ -6,6 +6,7 @@ import { Bell } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 import UserAvatar from '../UserAvatar';
+import {PublicAuthButtons} from './PublicAuthButtons';
 
 const AuthButtons = async({className}:PropsWithClassName) => {
     const kindeUser=await getKindeServerSession().getUser();
@@ -19,7 +20,9 @@ const AuthButtons = async({className}:PropsWithClassName) => {
 
         </Link>
     </div>
-  ):null
+  ):(
+    <PublicAuthButtons className={className} />
+  )
 }
 
 export default AuthButtons
