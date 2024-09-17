@@ -4,11 +4,12 @@
 import routes from '@/config/routes';
 import { cn, PropsWithClassName } from '@/lib/utils/ui-utils';
 import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs';
-import { BookMarked, Component, LogOut, User } from 'lucide-react';
+import { BookMarked, Component, LogOut, Menu, User } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { buttonVariants } from '../ui/button';
 import SidebarItem from './SidebarItem';
+import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 
 
 const sidebarItems=[
@@ -44,8 +45,32 @@ export const DesktopDashboardSidebar = ({className}:PropsWithClassName) => {
 
 
 export const MobileDashboardSidebar = () => {
+
+    const [open,setOpen]=useState(false);
+    const pathname=usePathname();
+
+    useEffect(()=>{
+        setOpen(false);
+    },[pathname])
   return (
-    <div>MobileDashboardSidebar</div>
+    <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger className='pl-4 pt-4 lg:hidden'>
+            <div className={cn(buttonVariants({
+                variant:"outline",size:"sm"
+            }))}>
+                <Menu className='w-5 h-5 mr-0.5' />
+                <span>Menu</span>
+
+            </div>
+
+        </SheetTrigger>
+
+        <SheetContent className='w-[250px] p-0 pt-2' side={"left"}>
+            <DashboardSidebarContent />
+
+        </SheetContent>
+
+    </Sheet>
   )
 }
 
