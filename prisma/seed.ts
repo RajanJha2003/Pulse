@@ -41,7 +41,28 @@ const runSeed=async()=>{
         }))
     })
 
-    console.log("It works");
+   
+
+    printCheckMark();
+
+    process.stdout.write("Generating events...");
+
+    const event=await prisma.event.create({
+        data:{
+            ownerId:myUser.id,
+            displayName:faker.commerce.productName(),
+            shortDescription:faker.lorem.sentence(),
+            slug:faker.lorem.slug(),
+            createdAt:faker.date.recent(),
+            participants:{
+                createMany:{
+                    data:Array.from({length:10}).map((_,index)=>({
+                        userId:otherUsers[index % otherUsers.length].id
+                    }))
+                }
+            }
+        }
+    })
 
     printCheckMark();
 
