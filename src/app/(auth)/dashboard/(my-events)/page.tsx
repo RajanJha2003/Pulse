@@ -9,12 +9,13 @@ const MyEventsPage = async() => {
   return (
     <ScrollArea className='w-full h-full px-4 py-2'>
         <h2 className='text-2xl font-bold mb-2 mt-4 ml-4'>Your Events</h2>
-        <div className='h-full grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3'>
+       
           
       
-        <UserEventsList initialEvents={initialEvents} />
+       <div>
+       <UserEventsList initialEvents={initialEvents} />
+       </div>
 
-        </div>
     </ScrollArea>
   )
 }

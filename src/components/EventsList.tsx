@@ -1,5 +1,5 @@
 import { EventDetail } from "@/lib/prisma/validators/event-validator"
-import EventCard from "./EventCard"
+import {EventCard} from "./EventCard"
 
 type Props={
     initialEvents:EventDetail[]

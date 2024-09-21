@@ -18,6 +18,7 @@ const DashboardLayout = async({children}:PropsWithChildren) => {
 
       <div className='flex flex-col overflow-auto w-full items-start grow-1'>
         <MobileDashboardSidebar />
+        {children}
 
       </div>
 
@@ -31,7 +32,7 @@ const DashboardLayout = async({children}:PropsWithChildren) => {
       
       
       
-      {children}</div>
+     </div>
   )
 }
 
