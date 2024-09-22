@@ -1,3 +1,4 @@
+import CopyEventLinkButton from '@/components/buttons/CopyEventLinkButton';
 import ParticipantsTooltip from '@/components/tooltips/ParticipantsTooltip';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import UserAvatar from '@/components/UserAvatar';
@@ -65,7 +66,10 @@ const EventLayout= async({children,params:{ownerId,eventSlug}}:Props) => {
 
             <div className='flex items-baseline justify-between lg:items-center lg:mr-8 lg:self-end'>
                 <ParticipantsTooltip className="mr-7" participantsCount={event._count.participants} />
+                       <div className='inline-flex items-center gap-x-2 mt-6 lg:mt-0'>
+                        <CopyEventLinkButton ownerId={owner.id} eventSlug={event.slug} />
 
+                       </div>
             </div>
         </div>
 
