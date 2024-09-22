@@ -1,3 +1,4 @@
+import ParticipantsTooltip from '@/components/tooltips/ParticipantsTooltip';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import UserAvatar from '@/components/UserAvatar';
 import routes from '@/config/routes';
@@ -56,6 +57,15 @@ const EventLayout= async({children,params:{ownerId,eventSlug}}:Props) => {
 
                     <UserAvatar displayName={owner.displayName} color={owner.color} className='w-6 h-6' />
                 </div>
+            </div>
+
+
+            {/* Participants, Event Action Buttons  */}
+
+
+            <div className='flex items-baseline justify-between lg:items-center lg:mr-8 lg:self-end'>
+                <ParticipantsTooltip className="mr-7" participantsCount={event._count.participants} />
+
             </div>
         </div>
 
