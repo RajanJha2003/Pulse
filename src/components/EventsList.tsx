@@ -12,3 +12,13 @@ export const UserEventsList=({initialEvents}:Props)=>{
     ))
 
 }
+
+
+
+export const BookMarkedEventList=({initialEvents}:Props)=>{
+    return initialEvents.map((event)=>(
+        <EventCard key={event.id} event={event} className="h-36" />
+        
+    ))
+
+}
