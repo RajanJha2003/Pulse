@@ -4,6 +4,7 @@ import { Users } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { EventDetail } from "@/lib/prisma/validators/event-validator";
+import routes from "@/config/routes";
 
 type Props = PropsWithClassName<{
   event: EventDetail;
@@ -16,7 +17,10 @@ export const EventCard = ({ event, className }: Props) => {
 
   return (
     <Link
-      href={"/#"}
+      href={routes.event({
+        eventSlug:event.slug,
+        ownerId:event.ownerId
+      })}
       prefetch={false}
     >
       <Card
